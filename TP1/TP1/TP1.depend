@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1567826528 source:c:\users\brian\desktop\tp1\tp1\calc.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+
+1567827571 source:c:\users\brian\desktop\tp1\tp1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"calc.h"
+
+1567825619 c:\users\brian\desktop\tp1\tp1\calc.h
+
