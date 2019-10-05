@@ -40,7 +40,7 @@ int getInt(	int *resultado,
 		return retorno;
 }
 
-int getFloat(	float *resultado,
+float getFloat(	float *resultado,
 				char *mensaje,
 				char *mensajeError,
 				float minimo,
@@ -76,7 +76,7 @@ int getFloat(	float *resultado,
 		return retorno;
 }
 
-int getChar(	char *resultado,
+char getChar(	char *resultado,
 				char *mensaje,
 				char *mensajeError,
 				char minimo,
@@ -330,3 +330,4 @@ int ordenarArrayString(char aNombres[][QTY_CARACTERES], int cantidad){
 	}
 	return retorno;
 }
+

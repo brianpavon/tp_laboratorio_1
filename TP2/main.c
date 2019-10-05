@@ -1,35 +1,41 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "utn.h"
-#include "empleados.h"
-
+#include "arrayEmployees.h"
 #define CANTIDAD_EMPLEADOS 1000
-#define CANTIDAD_SECTORES 4
+#define CANTIDAD_SECTORES 3
 
 int main()
 {
-    struct sEmpleado aEmpleado[CANTIDAD_EMPLEADOS];
+    sEmpleado empleado[CANTIDAD_EMPLEADOS];
+    sSector sector[CANTIDAD_SECTORES]={{1,"RRHH"},{2,"Sistemas"},{3,"Contabilidad"}};
     int opcionMenu;
-    initLugarLibreEmpleado(aEmpleado,CANTIDAD_EMPLEADOS);
-    int i =0;
+    int id = 0;
     do
     {
+        system("cls");
         printf("****MENU DE OPCIONES****\n");
         getInt(&opcionMenu,"1-Alta: \n2-Baja: \n3-Modificacion: \n4-Informes: \n5-Salir \n","OPCION INVALIDA",0,5,2);
         switch(opcionMenu)
         {
         case 1:
-            altaEmpleadoPorId(aEmpleado,CANTIDAD_EMPLEADOS);
-            printf("SOS PIOLA");
-            break;
-        case 2:
+            system("cls");
+            addEmployees(empleado,CANTIDAD_EMPLEADOS,sector,CANTIDAD_SECTORES,id);
+            id++;
 
             break;
+        case 2:
+            system("cls");
+            bajaEmpleadoPorId(empleado, CANTIDAD_EMPLEADOS, sector, CANTIDAD_SECTORES);
+            break;
         case 3:
+            system("cls");
+            menuModificacionEmpleados(empleado,CANTIDAD_EMPLEADOS,sector,CANTIDAD_SECTORES);
 
             break;
         case 4:
-
+            system("cls");
+            menuReportes(empleado, CANTIDAD_EMPLEADOS, sector, CANTIDAD_SECTORES);
             break;
         }
 
@@ -37,3 +43,5 @@ int main()
 
     return 0;
 }
+
+

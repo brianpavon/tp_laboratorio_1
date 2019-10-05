@@ -1,23 +1,26 @@
 # depslib dependency file v1.0
-1569654015 source:c:\users\brian\desktop\tp 2\tp2\main.c
+1570243666 source:c:\users\brian\desktop\tps codeblock\tp2\main.c
 	<stdio.h>
 	<stdlib.h>
 	"utn.h"
-	"empleados.h"
+	"arrayEmployees.h"
 
-1569652206 source:c:\users\brian\desktop\tp 2\tp2\empleados.c
+1570157434 source:c:\users\brian\desktop\tps codeblock\tp2\utn.c
 	<stdio.h>
 	<stdlib.h>
+	<string.h>
+
+1570243864 source:c:\users\brian\desktop\tps codeblock\tp2\arrayemployees.c
+	<stdio.h>
+	<stdlib.h>
+	<stdio.h>
 	<string.h>
 	"utn.h"
-	"empleados.h"
+	"arrayEmployees.h"
 
-1569646116 c:\users\brian\desktop\tp 2\tp2\utn.h
-
-1569654124 c:\users\brian\desktop\tp 2\tp2\empleados.h
-
-1569646283 source:c:\users\brian\desktop\tp 2\tp2\utn.c
+1570157434 c:\users\brian\desktop\tps codeblock\tp2\utn.h
 	<stdio.h>
 	<stdlib.h>
-	<string.h>
+
+1570243668 c:\users\brian\desktop\tps codeblock\tp2\arrayemployees.h
 

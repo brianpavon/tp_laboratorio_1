@@ -10,14 +10,14 @@ int getInt(	int *resultado,
 			int maximo,
 			int reintentos);
 
-int getFloat(	float *resultado,
+float getFloat(	float *resultado,
 				char *mensaje,
 				char *mensajeError,
 				float minimo,
 				float maximo,
 				int reintentos);
 
-int getChar(	char *resultado,
+char getChar(	char *resultado,
 				char *mensaje,
 				char *mensajeError,
 				char minimo,
