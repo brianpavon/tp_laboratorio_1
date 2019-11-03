@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "LinkedList.h"
 #include "Employee.h"
 #include "parser.h"
@@ -89,7 +90,50 @@ int controller_addEmployee(LinkedList* pArrayListEmployee)
  */
 int controller_editEmployee(LinkedList* pArrayListEmployee)
 {
-    return 1;
+    int retorno = -1;
+    int opcion;
+    int index;
+
+    Employee* auxEmpleado;
+
+
+    if(pArrayListEmployee != NULL)
+    {
+            printf("--------------INGRESO AL MENU DE MODIFICACION DE DATOS--------------\n\n");
+            system("pause");
+            index = employee_buscarPorId(pArrayListEmployee);
+
+            auxEmpleado = ll_get(pArrayListEmployee,index);
+
+
+            printf("El empleado seleccionado es:\n");
+            employee_imprimirEmpleado(auxEmpleado);
+            printf(  "1-Modificar el nombre\n"
+                     "2-Modificar las horas trabajadas\n"
+                     "3-Modificar el sueldo\n"
+                     "4-Salir\n");
+
+            getInt(&opcion,"Ingrese la opcion a modificar:\n","ERROR OPCION INVALIDA\n",0,4,2);
+            do
+            {
+                switch(opcion)
+                {
+                case 1:
+                    employee_modificarNombre(auxEmpleado);
+                    break;
+                case 2:
+                    //employee_modificarHorasTrabajadas(auxEmpleado);
+                    break;
+                case 3:
+                    //employee_modificarSueldo(auxEmpleado);
+                    break;
+                }
+                retorno = 0;
+            }while(opcion != 4);
+
+    }
+
+    return retorno;
 }
 
 /** \brief Baja de empleado
@@ -101,7 +145,34 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
  */
 int controller_removeEmployee(LinkedList* pArrayListEmployee)
 {
-    return 1;
+    int retorno = -1;
+    Employee* this;
+    int index;
+    char respuesta;
+
+
+    if(pArrayListEmployee != NULL)
+    {
+        index = employee_buscarPorId(pArrayListEmployee);
+        this = ll_get(pArrayListEmployee,index);
+        if(this != NULL)
+        {
+            printf("Dara de baja al empleado:\n");
+            employee_imprimirEmpleado(this);
+
+            getChar(&respuesta,"Desea continuar con la baja?Ingrese s para continuar\n","CARACTER INVALIDO\n",'s','s',2);
+            system("pause");
+            if(respuesta == 's')
+            {
+              ll_remove(pArrayListEmployee,index);
+              retorno = 0;
+            }
+
+        }
+
+    }
+    this = NULL;
+    return retorno;
 }
 
 /** \brief Listar empleados

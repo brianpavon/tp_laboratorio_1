@@ -100,3 +100,53 @@
 
 1572658674 c:\users\brian\desktop\tp3\tp3\win_64\parser.h
 
+1572824794 source:c:\users\brian\desktop\tp_laboratorio_1\tp3\win_64\controller.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+	"Employee.h"
+	"parser.h"
+	"utn.h"
+
+1572807382 c:\users\brian\desktop\tp_laboratorio_1\tp3\win_64\linkedlist.h
+
+1572821410 c:\users\brian\desktop\tp_laboratorio_1\tp3\win_64\employee.h
+	"utn.h"
+	"LinkedList.h"
+
+1572807383 c:\users\brian\desktop\tp_laboratorio_1\tp3\win_64\parser.h
+
+1572807383 c:\users\brian\desktop\tp_laboratorio_1\tp3\win_64\utn.h
+
+1572824835 source:c:\users\brian\desktop\tp_laboratorio_1\tp3\win_64\main.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Controller.h"
+	"Employee.h"
+	"utn.h"
+
+1572807382 c:\users\brian\desktop\tp_laboratorio_1\tp3\win_64\controller.h
+
+1572807383 source:c:\users\brian\desktop\tp_laboratorio_1\tp3\win_64\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+	"utn.h"
+
+1572807383 source:c:\users\brian\desktop\tp_laboratorio_1\tp3\win_64\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
+1572823946 source:c:\users\brian\desktop\tp_laboratorio_1\tp3\win_64\employee.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Employee.h"
+	"utn.h"
+	"LinkedList.h"
+

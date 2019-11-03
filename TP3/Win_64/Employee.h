@@ -1,7 +1,11 @@
 #ifndef employee_H_INCLUDED
 #define employee_H_INCLUDED
+
+#include "utn.h"
+#include "LinkedList.h"
 #define HORA_MAXIMA 250
 #define SUELDO_MAXIMO 100000
+#define ID_MAXIMO 10000
 typedef struct
 {
     int id;
@@ -30,5 +34,11 @@ void employee_imprimirEmpleado(Employee* this);
 int employee_ordenarPorNombre(void* empleadoUno, void* empleadoDos);
 int employee_ordenarPorHoras(void* empleadoUno, void* empleadoDos);
 int employee_ordenarPorSueldo(void* empleadoUno, void* empleadoDos);
+int employee_imprimirTodosLosEmpleados(LinkedList* pArrayListEmployee);
+int employee_buscarPorId(LinkedList* pAarrayEmployeeList);
+void employee_menuModificacion(LinkedList* pAarrayEmployeeList);
+int employee_modificarNombre(Employee* this);
+int employee_modificarSueldo(Employee* this);
+int employee_modificarHorasTrabajadas(Employee* this);
 
 #endif // employee_H_INCLUDED

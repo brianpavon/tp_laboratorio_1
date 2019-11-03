@@ -63,10 +63,10 @@ int main()
                 system("cls");
             	break;
             case 4:
-
+                controller_editEmployee(pArrayListEmployee);
                 break;
             case 5:
-
+                controller_removeEmployee(pArrayListEmployee);
                 break;
             case 6:
                 controller_ListEmployee(pArrayListEmployee);

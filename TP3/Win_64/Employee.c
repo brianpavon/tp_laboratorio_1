@@ -230,3 +230,151 @@ int employee_ordenarPorSueldo(void* empleadoUno, void* empleadoDos)
     return retorno;
 
 }
+
+void employee_menuModificacion(LinkedList* pArrayListEmployee)
+{
+    int opcion;
+    int index;
+    Employee* auxEmpleado;
+
+
+    if(pArrayListEmployee != NULL)
+    {
+            printf("--------------INGRESO AL MENU DE MODIFICACION DE DATOS--------------\n\n");
+            system("pause");
+            index = employee_buscarPorId(pArrayListEmployee);
+            auxEmpleado = ll_get(pArrayListEmployee,index);
+            system("pause");
+            employee_imprimirEmpleado(auxEmpleado);
+            printf(  "1-Modificar el nombre\n"
+                     "2-Modificar las horas trabajadas\n"
+                     "3-Modificar el sueldo\n"
+                     "4-Salir\n");
+
+            getInt(&opcion,"Ingrese la opcion a modificar:\n","ERROR OPCION INVALIDA\n",0,4,2);
+            do
+            {
+                switch(opcion)
+                {
+                case 1:
+                    employee_modificarNombre(auxEmpleado);
+                    break;
+                case 2:
+                    employee_modificarHorasTrabajadas(auxEmpleado);
+                    break;
+                case 3:
+                    employee_modificarSueldo(auxEmpleado);
+                    break;
+                }
+
+            }while(opcion != 4);
+
+    }
+
+}
+
+
+
+int employee_modificarNombre(Employee* this)
+{
+	int retorno = -1;
+	Employee auxEmpleado;
+	char respuesta;
+
+	    getString(auxEmpleado.nombre,"Ingrese el nuevo nombre:\n","INGRESO INVALIDO\n",0,QTY_CARACTERES,2);
+	    getChar(&respuesta,"Desea modificar el nombre? Ingrese s para modificar\n","NOMBRE INVALIDO",'s','z',2);
+	    if(respuesta == 's')
+        {
+            strncpy(this->nombre,auxEmpleado.nombre,QTY_CARACTERES);
+            //printf("Se modifico el nombre correctamente\n");
+            retorno = 0;
+        }
+	return retorno;
+}
+
+int employee_modificarSueldo(Employee* this)
+{
+	int retorno = -1;
+	Employee auxEmpleado;
+	char respuesta;
+	if(this != NULL)
+	{
+	    getInt(&auxEmpleado.sueldo,"Ingrese el nuevo sueldo:\n","INGRESO INVALIDO\n",0,50,2);
+	    getChar(&respuesta,"Desea modificar el sueldo? Ingrese s para modificar\n","SUELDO INVALIDO\n",'s','z',2);
+	    if(respuesta == 's')
+        {
+            this->sueldo = auxEmpleado.sueldo;
+            printf("Se modifico el sueldo correctamente\n");
+            retorno = 0;
+        }
+
+	}
+
+	return retorno;
+}
+
+int employee_modificarHorasTrabajadas(Employee* this)
+{
+	int retorno = -1;
+	Employee auxEmpleado;
+	char respuesta;
+	if(this != NULL)
+	{
+	    getInt(&auxEmpleado.horasTrabajadas,"Ingrese las nuevas horas:\n","INGRESO INVALIDO\n",0,50,2);
+	    getChar(&respuesta,"Desea modificar el valor de horas trabajadas? Ingrese s para modificar\n","INGRESO INVALIDO\n",'s','z',2);
+	    if(respuesta == 's')
+        {
+            this->horasTrabajadas = auxEmpleado.horasTrabajadas;
+            printf("Se actualizaron las horas trabajadas\n");
+            retorno = 0;
+        }
+
+	}
+
+	return retorno;
+}
+
+int employee_buscarPorId(LinkedList* pAarrayEmployeeList)
+{
+    int retorno = -1;
+    int id;
+    int i;
+    Employee* auxEmpleado;
+
+    employee_imprimirTodosLosEmpleados(pAarrayEmployeeList);
+    getInt(&id,"Indique el ID que desea modificar\n","ID INVALIDO",0,ID_MAXIMO,2);
+
+    for(i=0; i<ll_len(pAarrayEmployeeList); i++)
+    {
+        auxEmpleado = ll_get(pAarrayEmployeeList,i);
+        if(auxEmpleado->id == id)
+        {
+            retorno = i;
+        }
+    }
+
+    return retorno;
+}
+
+int employee_imprimirTodosLosEmpleados(LinkedList* pArrayListEmployee)
+{
+    int retorno = -1;
+    int i;
+    Employee* this;
+
+    if(pArrayListEmployee != NULL)
+    {
+        printf("%5s %10s %10s %10s\n\n","ID","NOMBRE","HORAS TRABAJADAS","SUELDO");
+        for(i=0 ; i<ll_len(pArrayListEmployee); i++)
+        {
+            if(i%150 == 0 && i != 0)
+            {
+                system("pause");
+            }
+          this = ll_get(pArrayListEmployee,i);
+          employee_imprimirEmpleado(this);
+          retorno = 0;
+        }
+    }
+    return retorno;
+}
