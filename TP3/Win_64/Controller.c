@@ -99,33 +99,39 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
 
     if(pArrayListEmployee != NULL)
     {
+
             printf("--------------INGRESO AL MENU DE MODIFICACION DE DATOS--------------\n\n");
             system("pause");
             index = employee_buscarPorId(pArrayListEmployee);
 
             auxEmpleado = ll_get(pArrayListEmployee,index);
-
-
             printf("El empleado seleccionado es:\n");
             employee_imprimirEmpleado(auxEmpleado);
+            system("pause");
+            do
+            {
+
+            system("cls");
             printf(  "1-Modificar el nombre\n"
                      "2-Modificar las horas trabajadas\n"
                      "3-Modificar el sueldo\n"
                      "4-Salir\n");
 
             getInt(&opcion,"Ingrese la opcion a modificar:\n","ERROR OPCION INVALIDA\n",0,4,2);
-            do
-            {
+
                 switch(opcion)
                 {
                 case 1:
                     employee_modificarNombre(auxEmpleado);
+                    system("pause");
                     break;
                 case 2:
-                    //employee_modificarHorasTrabajadas(auxEmpleado);
+                    employee_modificarHorasTrabajadas(auxEmpleado);
+                    system("pause");
                     break;
                 case 3:
-                    //employee_modificarSueldo(auxEmpleado);
+                    employee_modificarSueldo(auxEmpleado);
+                    system("pause");
                     break;
                 }
                 retorno = 0;
@@ -160,18 +166,20 @@ int controller_removeEmployee(LinkedList* pArrayListEmployee)
             printf("Dara de baja al empleado:\n");
             employee_imprimirEmpleado(this);
 
-            getChar(&respuesta,"Desea continuar con la baja?Ingrese s para continuar\n","CARACTER INVALIDO\n",'s','s',2);
-            system("pause");
+            getChar(&respuesta,"Desea continuar con la baja?Ingrese s para continuar\n","CARACTER INVALIDO\n",'s','z',2);
             if(respuesta == 's')
             {
               ll_remove(pArrayListEmployee,index);
+              printf("Se dio de baja al empleado\n");
+              system("pause");
               retorno = 0;
             }
 
         }
 
     }
-    this = NULL;
+
+    //this = NULL;
     return retorno;
 }
 

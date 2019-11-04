@@ -282,11 +282,12 @@ int employee_modificarNombre(Employee* this)
 	char respuesta;
 
 	    getString(auxEmpleado.nombre,"Ingrese el nuevo nombre:\n","INGRESO INVALIDO\n",0,QTY_CARACTERES,2);
-	    getChar(&respuesta,"Desea modificar el nombre? Ingrese s para modificar\n","NOMBRE INVALIDO",'s','z',2);
+	    getChar(&respuesta,"Desea modificar el nombre? Ingrese s para modificar\n","NOMBRE INVALIDO\n",'s','z',2);
 	    if(respuesta == 's')
         {
             strncpy(this->nombre,auxEmpleado.nombre,QTY_CARACTERES);
-            //printf("Se modifico el nombre correctamente\n");
+            //employee_setNombre(this,auxEmpleado.nombre);
+            printf("Se modifico el nombre correctamente\n");
             retorno = 0;
         }
 	return retorno;
@@ -299,7 +300,7 @@ int employee_modificarSueldo(Employee* this)
 	char respuesta;
 	if(this != NULL)
 	{
-	    getInt(&auxEmpleado.sueldo,"Ingrese el nuevo sueldo:\n","INGRESO INVALIDO\n",0,50,2);
+	    getInt(&auxEmpleado.sueldo,"Ingrese el nuevo sueldo:\n","INGRESO INVALIDO\n",0,SUELDO_MAXIMO,2);
 	    getChar(&respuesta,"Desea modificar el sueldo? Ingrese s para modificar\n","SUELDO INVALIDO\n",'s','z',2);
 	    if(respuesta == 's')
         {
@@ -320,7 +321,7 @@ int employee_modificarHorasTrabajadas(Employee* this)
 	char respuesta;
 	if(this != NULL)
 	{
-	    getInt(&auxEmpleado.horasTrabajadas,"Ingrese las nuevas horas:\n","INGRESO INVALIDO\n",0,50,2);
+	    getInt(&auxEmpleado.horasTrabajadas,"Ingrese las nuevas horas:\n","INGRESO INVALIDO\n",0,HORA_MAXIMA,2);
 	    getChar(&respuesta,"Desea modificar el valor de horas trabajadas? Ingrese s para modificar\n","INGRESO INVALIDO\n",'s','z',2);
 	    if(respuesta == 's')
         {
