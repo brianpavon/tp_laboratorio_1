@@ -23,6 +23,7 @@
 int main()
 {
     int option;
+    int flag = 0;
 
     LinkedList* pArrayListEmployee = ll_newLinkedList();
     do{
@@ -43,43 +44,85 @@ int main()
         switch(option)
         {
             case 1:
-                if(controller_loadFromText("data.csv",pArrayListEmployee)==0)
+                if(controller_loadFromText("data.csv",pArrayListEmployee)==0 && flag == 0)
                 {
                   printf("Lista cargada con exito\n");
+                  flag = 1;
                   system("pause");
                 }
-                system("cls");
+
                 break;
             case 2:
 
                 system("cls");
             	break;
+
             case 3:
-                if(controller_addEmployee(pArrayListEmployee)==0)
+                system("cls");
+                if(controller_addEmployee(pArrayListEmployee)==0 && flag == 1)
                 {
                     printf("Se cargo el nuevo empleado\n");
                     system("pause");
                 }
-                system("cls");
+                else if(flag == 0)
+                {
+                    printf("Debe cargar primero un archivo\n");
+                }
+                //system("cls");
             	break;
+
             case 4:
                 system("cls");
-                controller_editEmployee(pArrayListEmployee);
+                if(flag == 1)
+                {
+                  controller_editEmployee(pArrayListEmployee);
+                }
+                else if(flag == 0)
+                {
+                   printf("Debe cargar primero un archivo\n");
+                }
                 break;
+
             case 5:
                 system("cls");
-                controller_removeEmployee(pArrayListEmployee);
+                if(flag == 1)
+                {
+                  controller_removeEmployee(pArrayListEmployee);
+                }
+
+                else if(flag == 0)
+                {
+                   printf("Debe cargar primero un archivo\n");
+                }
                 break;
+
             case 6:
-                controller_ListEmployee(pArrayListEmployee);
-                system("pause");
+                system("cls");
+                if(flag == 1)
+                {
+                 controller_ListEmployee(pArrayListEmployee);
+                 system("pause");
+                }
+                else if(flag == 0)
+                {
+                   printf("Debe cargar primero un archivo\n");
+                }
 
                 break;
+
             case 7:
+                system("cls");
+                if(flag == 1)
+                {
+                 controller_sortEmployee(pArrayListEmployee);
+                }
 
-                controller_sortEmployee(pArrayListEmployee);
-
+                else if(flag == 0)
+                {
+                   printf("Debe cargar primero un archivo\n");
+                }
                 break;
+
             case 8:
 
                 break;
