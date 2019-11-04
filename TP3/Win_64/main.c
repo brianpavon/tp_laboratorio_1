@@ -24,6 +24,8 @@ int main()
 {
     int option;
     int flag = 0;
+    int flagBinario = 0;
+    //int prueba;
 
     LinkedList* pArrayListEmployee = ll_newLinkedList();
     do{
@@ -50,16 +52,29 @@ int main()
                   flag = 1;
                   system("pause");
                 }
-
+                /*if(controller_loadFromText("data2.csv",pArrayListEmployee)==0 && flag == 0)
+                {
+                  printf("Lista cargada con exito\n");
+                  flag = 1;
+                  system("pause");
+                }*/
                 break;
             case 2:
+                if(controller_loadFromBinary("dataB.csv",pArrayListEmployee)==0 && flagBinario == 0)
+                {
+                    printf("Archivo en binario cargado exitosamente\n");
+                    flagBinario = 1;
+                    system("cls");
+                }
 
-                system("cls");
             	break;
 
             case 3:
+                /*prueba = employee_generarId(pArrayListEmployee);
+                printf("ID: %d\n",prueba);
+                system("pause");*/
                 system("cls");
-                if(controller_addEmployee(pArrayListEmployee)==0 && flag == 1)
+                if(controller_addEmployee(pArrayListEmployee)==0 && flag != 0)
                 {
                     printf("Se cargo el nuevo empleado\n");
                     system("pause");
@@ -73,7 +88,7 @@ int main()
 
             case 4:
                 system("cls");
-                if(flag == 1)
+                if(flag != 0)
                 {
                   controller_editEmployee(pArrayListEmployee);
                 }
@@ -85,7 +100,7 @@ int main()
 
             case 5:
                 system("cls");
-                if(flag == 1)
+                if(flag != 0)
                 {
                   controller_removeEmployee(pArrayListEmployee);
                 }
@@ -98,7 +113,7 @@ int main()
 
             case 6:
                 system("cls");
-                if(flag == 1)
+                if(flag != 0)
                 {
                  controller_ListEmployee(pArrayListEmployee);
                  system("pause");
@@ -112,7 +127,7 @@ int main()
 
             case 7:
                 system("cls");
-                if(flag == 1)
+                if(flag != 0)
                 {
                  controller_sortEmployee(pArrayListEmployee);
                 }
@@ -124,10 +139,19 @@ int main()
                 break;
 
             case 8:
-
+                if(flag != 0)
+                {
+                  controller_saveAsText("data2.csv",pArrayListEmployee);
+                  printf("Guardado exitoso\n");
+                  system("pause");
+                }
                 break;
             case 9:
-
+                if(flagBinario != 0)
+                {
+                 controller_saveAsBinary("dataB2.csv",pArrayListEmployee);
+                 printf("Guardado exitoso\n");
+                }
                 break;
 
         }

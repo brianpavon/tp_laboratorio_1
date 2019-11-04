@@ -38,7 +38,17 @@ int controller_loadFromText(char* path , LinkedList* pArrayListEmployee)
  */
 int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)
 {
-    return 1;
+    int retorno = -1;
+    FILE* pFile;
+	pFile = fopen(path, "rb");
+
+	if(pFile != NULL)
+	{
+		retorno = parser_EmployeeFromBinary(pFile,pArrayListEmployee);
+	}
+	fclose(pFile);
+
+    return retorno;
 }
 
 /** \brief Alta de empleados
@@ -287,7 +297,34 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee)
  */
 int controller_saveAsText(char* path , LinkedList* pArrayListEmployee)
 {
-    return 1;
+    int retorno = -1;
+    int i;
+    FILE* pFile;
+    pFile = fopen(path,"wb");
+    Employee* this;
+    int id;
+	char nombre[4096];
+	int horasTrabajadas;
+	int sueldo;
+
+	if(pFile != NULL)
+    {
+        fprintf(pFile,"id,nombre,horasTrabajadas,sueldo\n");
+        for(i=0; i<ll_len(pArrayListEmployee); i++)
+        {
+            this = ll_get(pArrayListEmployee,i);
+
+            employee_getId(this,&id);
+            employee_getNombre(this,nombre);
+            employee_getHorasTrabajadas(this,&horasTrabajadas);
+            employee_getSueldo(this,&sueldo);
+            fprintf(pFile,"%d,%s,%d,%d\n",id,nombre,horasTrabajadas,sueldo);
+            retorno = 0;
+        }
+    }
+	fclose(pFile);
+
+    return retorno;
 }
 
 /** \brief Guarda los datos de los empleados en el archivo data.csv (modo binario).
@@ -299,6 +336,24 @@ int controller_saveAsText(char* path , LinkedList* pArrayListEmployee)
  */
 int controller_saveAsBinary(char* path , LinkedList* pArrayListEmployee)
 {
-    return 1;
+    int retorno = -1;
+    int i;
+    Employee* this;
+    FILE* pFile;
+    pFile = fopen(path,"wb");
+
+
+	if(pFile != NULL)
+    {
+        for(i=0; i<ll_len(pArrayListEmployee); i++)
+        {
+            this = ll_get(pArrayListEmployee,i);
+            fwrite(this,sizeof(Employee),1,pFile);
+            retorno = 0;
+        }
+    }
+	fclose(pFile);
+
+    return retorno;
 }
 

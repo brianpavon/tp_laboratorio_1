@@ -100,7 +100,7 @@
 
 1572658674 c:\users\brian\desktop\tp3\tp3\win_64\parser.h
 
-1572827943 source:c:\users\brian\desktop\tp_laboratorio_1\tp3\win_64\controller.c
+1572833422 source:c:\users\brian\desktop\tp_laboratorio_1\tp3\win_64\controller.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -111,7 +111,7 @@
 
 1572807382 c:\users\brian\desktop\tp_laboratorio_1\tp3\win_64\linkedlist.h
 
-1572821410 c:\users\brian\desktop\tp_laboratorio_1\tp3\win_64\employee.h
+1572834194 c:\users\brian\desktop\tp_laboratorio_1\tp3\win_64\employee.h
 	"utn.h"
 	"LinkedList.h"
 
@@ -119,7 +119,7 @@
 
 1572807383 c:\users\brian\desktop\tp_laboratorio_1\tp3\win_64\utn.h
 
-1572827479 source:c:\users\brian\desktop\tp_laboratorio_1\tp3\win_64\main.c
+1572834311 source:c:\users\brian\desktop\tp_laboratorio_1\tp3\win_64\main.c
 	<stdio.h>
 	<stdlib.h>
 	"LinkedList.h"
@@ -129,7 +129,7 @@
 
 1572807382 c:\users\brian\desktop\tp_laboratorio_1\tp3\win_64\controller.h
 
-1572807383 source:c:\users\brian\desktop\tp_laboratorio_1\tp3\win_64\parser.c
+1572830415 source:c:\users\brian\desktop\tp_laboratorio_1\tp3\win_64\parser.c
 	<stdio.h>
 	<stdlib.h>
 	"LinkedList.h"
@@ -142,7 +142,7 @@
 	<string.h>
 	<ctype.h>
 
-1572827829 source:c:\users\brian\desktop\tp_laboratorio_1\tp3\win_64\employee.c
+1572835805 source:c:\users\brian\desktop\tp_laboratorio_1\tp3\win_64\employee.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

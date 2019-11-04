@@ -40,5 +40,6 @@ void employee_menuModificacion(LinkedList* pAarrayEmployeeList);
 int employee_modificarNombre(Employee* this);
 int employee_modificarSueldo(Employee* this);
 int employee_modificarHorasTrabajadas(Employee* this);
+int employee_generarId(LinkedList* pArrayListEmployee);
 
 #endif // employee_H_INCLUDED

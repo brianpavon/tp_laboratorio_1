@@ -22,7 +22,7 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
 	char horasTrabajadas[HORA_MAXIMA];
 	char sueldo[SUELDO_MAXIMO];
 
-	pFile = fopen("data.csv","r");
+	//pFile = fopen("data.csv","r");
 	if(pArrayListEmployee != NULL && pFile != NULL)
     {
         fscanf(pFile,"%[^,],%[^,],%[^,],%[^\n]\n",id,nombre,horasTrabajadas,sueldo);
@@ -61,5 +61,28 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
 int parser_EmployeeFromBinary(FILE* pFile , LinkedList* pArrayListEmployee)
 {
 
-    return 1;
+    int retorno = -1;
+	Employee* auxEmployee;
+
+	if(pArrayListEmployee != NULL && pFile != NULL)
+    {
+        do
+		{
+			auxEmployee = employee_new();
+			fread(auxEmployee,sizeof(Employee),1,pFile);
+			if(auxEmployee != NULL)
+            {
+                ll_add(pArrayListEmployee,auxEmployee);
+                retorno = 0;
+            }
+            else
+                break;
+
+		}while(!feof(pFile));
+    }
+
+	fclose(pFile);
+	pFile = NULL;
+
+    return retorno;
 }
