@@ -62,7 +62,6 @@ int main()
                         {
                             printf("Ya se cargaron los archivos\n");
                         }
-
                     }
                 /*if(controller_loadFromText("data2.csv",pArrayListEmployee)==0 && flag == 0)
                 {
@@ -247,7 +246,7 @@ int main()
             case 9:
                 if(flag == 1)
                 {
-                    printf("Debe cargar el archivo como binario\n")
+                    printf("Debe cargar el archivo como binario\n");
                 }
                 else
                 {

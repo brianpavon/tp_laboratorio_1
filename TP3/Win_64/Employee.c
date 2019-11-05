@@ -96,6 +96,7 @@ int employee_getId(Employee* this,int* id)
 
 static int employee_isValidId(int* id)
 {
+
 	return 1;
 }
 
