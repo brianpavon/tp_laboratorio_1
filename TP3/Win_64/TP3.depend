@@ -150,3 +150,53 @@
 	"utn.h"
 	"LinkedList.h"
 
+1572992492 source:c:\users\alumno\desktop\tp_laboratorio_1\tp3\win_64\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
+1572993445 source:c:\users\alumno\desktop\tp_laboratorio_1\tp3\win_64\employee.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Employee.h"
+	"utn.h"
+	"LinkedList.h"
+
+1572993445 c:\users\alumno\desktop\tp_laboratorio_1\tp3\win_64\employee.h
+	"utn.h"
+	"LinkedList.h"
+
+1572992492 c:\users\alumno\desktop\tp_laboratorio_1\tp3\win_64\utn.h
+
+1572992492 c:\users\alumno\desktop\tp_laboratorio_1\tp3\win_64\linkedlist.h
+
+1572993461 source:c:\users\alumno\desktop\tp_laboratorio_1\tp3\win_64\controller.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+	"Employee.h"
+	"parser.h"
+	"utn.h"
+
+1572993445 c:\users\alumno\desktop\tp_laboratorio_1\tp3\win_64\parser.h
+
+1572993490 source:c:\users\alumno\desktop\tp_laboratorio_1\tp3\win_64\main.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Controller.h"
+	"Employee.h"
+	"utn.h"
+
+1572993445 c:\users\alumno\desktop\tp_laboratorio_1\tp3\win_64\controller.h
+
+1572993445 source:c:\users\alumno\desktop\tp_laboratorio_1\tp3\win_64\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+	"utn.h"
+

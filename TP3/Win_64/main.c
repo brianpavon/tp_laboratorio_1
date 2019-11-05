@@ -25,6 +25,7 @@ int main()
     int option;
     int flag = 0;
     int flagBinario = 0;
+    int id = 1000;
     //int prueba;
 
     LinkedList* pArrayListEmployee = ll_newLinkedList();
@@ -46,12 +47,23 @@ int main()
         switch(option)
         {
             case 1:
-                if(controller_loadFromText("data.csv",pArrayListEmployee)==0 && flag == 0)
+                if(flag == 0)
                 {
-                  printf("Lista cargada con exito\n");
-                  flag = 1;
-                  system("pause");
+                    if(controller_loadFromText("data.csv",pArrayListEmployee)==0)
+                    {
+                        printf("Lista cargada con exito\n");
+                        flag = 1;
+                        system("pause");
+                    }
                 }
+                else
+                    {
+                        if(flag == 1)
+                        {
+                            printf("Ya se cargaron los archivos\n");
+                        }
+
+                    }
                 /*if(controller_loadFromText("data2.csv",pArrayListEmployee)==0 && flag == 0)
                 {
                   printf("Lista cargada con exito\n");
@@ -60,98 +72,197 @@ int main()
                 }*/
                 break;
             case 2:
-                if(controller_loadFromBinary("dataB.csv",pArrayListEmployee)==0 && flagBinario == 0)
+                if(flagBinario == 0 && flag == 0)
                 {
-                    printf("Archivo en binario cargado exitosamente\n");
-                    flagBinario = 1;
-                    system("cls");
+                    if(controller_loadFromBinary("dataB.csv",pArrayListEmployee)==0)
+                    {
+                        printf("Archivo en binario cargado exitosamente\n");
+                        flagBinario = 1;
+                        system("pause");
+                    }
+
+                }
+                else
+                {
+                    if(flag == 1)
+                    {
+                        printf("Ya se cargaron los archivos como texto\n");
+                        system("pause");
+                    }
                 }
 
             	break;
 
             case 3:
-                /*prueba = employee_generarId(pArrayListEmployee);
-                printf("ID: %d\n",prueba);
-                system("pause");*/
                 system("cls");
-                if(controller_addEmployee(pArrayListEmployee)==0 && flag != 0)
+                if(flagBinario == 1)
                 {
-                    printf("Se cargo el nuevo empleado\n");
+                    printf("Debe cerrar el programa y cargar la lista como texto\n");
                     system("pause");
                 }
-                else if(flag == 0)
+                else
                 {
-                    printf("Debe cargar primero un archivo\n");
+                    if(ll_len(pArrayListEmployee)!=0 && flag == 1)
+                    {
+                         if(controller_addEmployee(pArrayListEmployee,id)==0)
+                        {
+                            printf("Se cargo el nuevo empleado\n");
+                            id++;
+                            system("pause");
+                        }
+
+                    }
+                    else
+                    {
+                        printf("Debe cargar un archivo de texto primero\n");
+                        system("pause");
+                    }
                 }
-                //system("cls");
+
             	break;
 
             case 4:
                 system("cls");
-                if(flag != 0)
+                if(flagBinario == 1)
                 {
-                  controller_editEmployee(pArrayListEmployee);
+                    printf("Debe cerrar el programa y cargar la lista como texto\n");
+                    system("pause");
                 }
-                else if(flag == 0)
+                else
                 {
-                   printf("Debe cargar primero un archivo\n");
+                  if(ll_len(pArrayListEmployee) != 0)
+                    {
+                       if(flag == 1)
+                        {
+                          controller_editEmployee(pArrayListEmployee);
+                        }
+                    }
+
+                    else
+                        {
+                            printf("Debe cargar primero un archivo\n");
+                            system("pause");
+                        }
                 }
+
                 break;
 
             case 5:
                 system("cls");
-                if(flag != 0)
+                if(flagBinario == 1)
                 {
-                  controller_removeEmployee(pArrayListEmployee);
+                    printf("Debe cerrar el programa y cargar la lista como texto\n");
+                    system("pause");
+                }
+                else
+                {
+                  if(ll_len(pArrayListEmployee) != 0)
+                    {
+                       if(flag == 1)
+                        {
+                          controller_removeEmployee(pArrayListEmployee);
+                        }
+                    }
+                    else
+                    {
+                       printf("Debe cargar primero un archivo\n");
+                       system("pause");
+                    }
                 }
 
-                else if(flag == 0)
-                {
-                   printf("Debe cargar primero un archivo\n");
-                }
                 break;
 
             case 6:
                 system("cls");
-                if(flag != 0)
+                if(flagBinario == 1)
                 {
-                 controller_ListEmployee(pArrayListEmployee);
-                 system("pause");
+                    printf("Debe cerrar el programa y cargar la lista como texto\n");
+                    system("pause");
                 }
-                else if(flag == 0)
+                else
                 {
-                   printf("Debe cargar primero un archivo\n");
+                     if(ll_len(pArrayListEmployee)!= 0)
+                        {
+                            if(flag == 1)
+                            {
+                            controller_ListEmployee(pArrayListEmployee);
+                            system("pause");
+                            }
+                        }
+                        else
+                        {
+                           printf("Debe cargar primero un archivo\n");
+                           system("pause");
+                        }
                 }
 
                 break;
 
             case 7:
                 system("cls");
-                if(flag != 0)
+                if(flagBinario == 1)
                 {
-                 controller_sortEmployee(pArrayListEmployee);
+                    printf("Debe cerrar el programa y cargar la lista como texto\n");
+                    system("pause");
+                }
+                else
+                {
+                    if(ll_len(pArrayListEmployee)!= 0)
+                    {
+                      if(flag == 1)
+                        {
+                         controller_sortEmployee(pArrayListEmployee);
+                        }
+                    }
+                    else
+                    {
+                       printf("Debe cargar primero un archivo\n");
+                       system("pause");
+                    }
                 }
 
-                else if(flag == 0)
-                {
-                   printf("Debe cargar primero un archivo\n");
-                }
                 break;
 
             case 8:
-                if(flag != 0)
+                if(flagBinario == 1)
                 {
-                  controller_saveAsText("data2.csv",pArrayListEmployee);
-                  printf("Guardado exitoso\n");
-                  system("pause");
+                    printf("Debe cargar primero el archivo como texto\n");
                 }
+                else
+                {
+                  if(flag == 1 && flagBinario == 0)
+                    {
+                      controller_saveAsText("data2.csv",pArrayListEmployee);
+                      printf("Guardado exitoso\n");
+                      system("pause");
+                    }
+                    else
+                    {
+                       printf("Se debe cargar primero el archivo como texto\n");
+                       system("pause");
+                    }
+                }
+
                 break;
             case 9:
-                if(flagBinario != 0)
+                if(flag == 1)
                 {
-                 controller_saveAsBinary("dataB2.csv",pArrayListEmployee);
-                 printf("Guardado exitoso\n");
+                    printf("Debe cargar el archivo como binario\n")
                 }
+                else
+                {
+                 if(flagBinario == 1 && flag == 0)
+                    {
+                     controller_saveAsBinary("dataB2.csv",pArrayListEmployee);
+                     printf("Guardado exitoso\n");
+                    }
+                    else
+                    {
+                        printf("Se debe cargar primero el archivo como binario\n");
+                        system("pause");
+                    }
+                }
+
                 break;
 
         }

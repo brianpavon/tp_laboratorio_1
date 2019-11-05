@@ -58,28 +58,29 @@ int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)
  * \return int
  *
  */
-int controller_addEmployee(LinkedList* pArrayListEmployee)
+int controller_addEmployee(LinkedList* pArrayListEmployee,int id)
 {
     int retorno = -1;
     Employee* auxEmp;
 
-	char id[4096];
+	char idAux[4096];
 	char nombre[4096];
 	char horasTrabajadas[4096];
 	char sueldo[4096];
-	int idAux;
-	int largo;
+	//int idAux;
+	//int largo;
 
     if(pArrayListEmployee != NULL)
     {
       getString(nombre,"Ingrese el nombre:\n","Dato ingresado incorrecto\n",0,50,2);
       getString(horasTrabajadas,"Ingrese las horas trabajadas:\n","Dato ingresado incorrecto\n",0,50,2);
       getString(sueldo,"Ingrese el sueldo:\n","Dato ingresado incorrecto\n",0,50,2);
-      largo = ll_len(pArrayListEmployee);
-      idAux = largo+1;
-      sprintf(id,"%d",idAux);
+      //largo = ll_len(pArrayListEmployee);
+      //idAux = largo+1;
+      id++;
+      sprintf(idAux,"%d",id);
 
-      auxEmp = employee_newParametros(id,nombre,horasTrabajadas,sueldo);
+      auxEmp = employee_newParametros(idAux,nombre,horasTrabajadas,sueldo);
 
       if(auxEmp != NULL)
        {

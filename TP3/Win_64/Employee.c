@@ -380,30 +380,3 @@ int employee_imprimirTodosLosEmpleados(LinkedList* pArrayListEmployee)
     return retorno;
 }
 
-/*int employee_generarId(LinkedList* pArrayListEmployee)
-{
-   int retorno = -1;
-   int id;
-   int largo;
-   int i;
-   Employee* auxEmpleado;
-
-   if(pArrayListEmployee != NULL)
-   {
-       for(i=0; i<ll_len(pArrayListEmployee); i++)
-       {
-        auxEmpleado = ll_get(pArrayListEmployee,i);
-       }
-       if(auxEmpleado->id != id)
-       {
-         largo = ll_len(pArrayListEmployee);
-         id = largo + 1;
-       }
-       else if()
-       {
-
-       }
-       retorno = id;
-   }
-  return retorno;
-}*/
