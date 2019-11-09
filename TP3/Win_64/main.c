@@ -61,6 +61,7 @@ int main()
                         if(flag == 1)
                         {
                             printf("Ya se cargaron los archivos\n");
+                            system("pause");
                         }
                     }
                 /*if(controller_loadFromText("data2.csv",pArrayListEmployee)==0 && flag == 0)
@@ -223,15 +224,10 @@ int main()
                 break;
 
             case 8:
-                if(flagBinario == 1)
-                {
-                    printf("Debe cargar primero el archivo como texto\n");
-                }
-                else
-                {
-                  if(flag == 1 && flagBinario == 0)
+
+                  if(flag == 1 || flagBinario == 1)
                     {
-                      controller_saveAsText("data2.csv",pArrayListEmployee);
+                      controller_saveAsText("data.csv",pArrayListEmployee);
                       printf("Guardado exitoso\n");
                       system("pause");
                     }
@@ -240,19 +236,11 @@ int main()
                        printf("Se debe cargar primero el archivo como texto\n");
                        system("pause");
                     }
-                }
-
                 break;
             case 9:
-                if(flag == 1)
-                {
-                    printf("Debe cargar el archivo como binario\n");
-                }
-                else
-                {
-                 if(flagBinario == 1 && flag == 0)
+                 if(flagBinario == 1 || flag == 1)
                     {
-                     controller_saveAsBinary("dataB2.csv",pArrayListEmployee);
+                     controller_saveAsBinary("dataB.csv",pArrayListEmployee);
                      printf("Guardado exitoso\n");
                     }
                     else
@@ -260,7 +248,6 @@ int main()
                         printf("Se debe cargar primero el archivo como binario\n");
                         system("pause");
                     }
-                }
 
                 break;
 

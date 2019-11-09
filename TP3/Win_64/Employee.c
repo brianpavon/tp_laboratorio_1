@@ -12,12 +12,24 @@ static int employee_isValidHorasTrabajadas(int* horasTrabajadas);
 static int employee_isValidSueldo(int* sueldo);
 static int employee_isValidId(int* id);
 
+/**
+*\brief Solicita memoria para un bloque de estructura la estructura Employee
+*\return Retorna la posicion de memoria a la estructura
+*/
 
 Employee* employee_new()
 {
 	return malloc(sizeof(Employee));
 }
 
+/**
+*\brief Transforma y establece todos los datos de la estructura con los parametros recibidos
+*\param char* idStr id del empleado
+*\param char* nombreStr nombre del empleado
+*\param char* horasTrabajadasStr cantidad de horas trabajadas del empleado
+*\param char* sueldoStr sueldo del empleado
+* \return Retorna la posicion de memoria a la estructura
+*/
 Employee* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajadasStr,char* sueldoStr)
 {
 	Employee* retorno = NULL;
@@ -48,6 +60,10 @@ Employee* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajad
 	return retorno;
 }
 
+/**
+*\brief imprime un empleado que se encuentra cargado en la estructura Employee
+*\param Employee* this puntero a la estructura Employee
+*/
 void employee_imprimirEmpleado(Employee* this)
 {
 
@@ -64,6 +80,11 @@ void employee_imprimirEmpleado(Employee* this)
     printf("%5d %10s %10d %10d\n",id,nombre,horasTrabajadas,sueldo);
 
 }
+
+/**
+*\brief libera el espacio de memoria que ocupaba la estructura de Employee
+*\param Employee* this puntero a la estructura Employee
+*/
 void employee_delete(Employee* this)
 {
 	if(this != NULL)
@@ -71,6 +92,13 @@ void employee_delete(Employee* this)
 		free(this);
 	}
 }
+
+/**
+*\brief setea un ID a un elemento de la estructura Employee
+*\param Employee* this puntero a la estructura Employee
+*\param  int id el entero que se establecera como id
+*\return retorna 0 si salio OK -1 si fallo
+*/
 
 int employee_setId(Employee* this,int id)
 {
@@ -83,6 +111,12 @@ int employee_setId(Employee* this,int id)
 	return retorno;
 }
 
+/**
+*\brief obtiene un ID de un elemento de la estructura Employee
+*\param Employee* this puntero a la estructura Employee
+*\param  int id el entero al que se le pasara el id obtenido
+*\return retorna 0 si salio OK -1 si fallo
+*/
 int employee_getId(Employee* this,int* id)
 {
 	int retorno = -1;
@@ -94,11 +128,37 @@ int employee_getId(Employee* this,int* id)
 	return retorno;
 }
 
+/**
+*\brief Valida que el entero ingresado como id sea numerico
+*\param  int id el entero que se validara
+*\return retorna 1 si salio OK -1 si fallo
+*/
 static int employee_isValidId(int* id)
 {
+     int retorno =-1;
+     int i=0;
 
-	return 1;
+     if(id != NULL)
+     {
+        while(id[i] != '\0')
+        {
+        if(id[i]<'0' || id[i]>'9')
+        break;
+        i++;
+     }
+        if(id[i] == '\0')
+        retorno = 1;
+     }
+
+	return retorno;
 }
+
+/**
+*\brief carga un nombre a un elemento de la estructura Employee
+*\param Employee* this puntero a la estructura Employee
+*\param  char* nombre es el string de caracteres que se pasara como nombre
+*\return retorna 0 si salio OK -1 si fallo
+*/
 
 int employee_setNombre(Employee* this,char* nombre)
 {
@@ -111,6 +171,12 @@ int employee_setNombre(Employee* this,char* nombre)
 	return retorno;
 }
 
+/**
+*\brief obtiene un nombre de un elemento de la estructura Employee
+*\param Employee* this puntero a la estructura Employee
+*\param  char* nombre es el string de caracteres al que se le pasara el nombre obtenido
+*\return retorna 0 si salio OK -1 si fallo
+*/
 int employee_getNombre(Employee* this,char* nombre)
 {
 	int retorno = -1;
@@ -123,11 +189,23 @@ int employee_getNombre(Employee* this,char* nombre)
 	return retorno;
 }
 
+/**
+*\brief valida un nombre de un elemento de la estructura Employee
+*\param  char* nombre es el string de caracteres que se le pasara
+*\return retorna 1 si salio OK -1 si fallo
+*/
 static int employee_isValidNombre(char* nombre)
 {
 	return 1;
 }
 
+
+/**
+*\brief setea las horas trabajadas a un elemento de la estructura Employee
+*\param Employee* this puntero a la estructura Employee
+*\param  int horasTrabajadas el entero que se establecera como horas trabajadas para ese empleado
+*\return retorna 0 si salio OK -1 si fallo
+*/
 int employee_setHorasTrabajadas(Employee* this,int horasTrabajadas)
 {
 	int retorno = -1;
@@ -139,6 +217,12 @@ int employee_setHorasTrabajadas(Employee* this,int horasTrabajadas)
 	return retorno;
 }
 
+/**
+*\brief obtiene las horas trabajadas de un elemento de la estructura Employee y se las pasa a una variable
+*\param Employee* this puntero a la estructura Employee
+*\param  int horasTrabajadas el entero al que se le pasaras las horas trabajadas de ese empleado
+*\return retorna 0 si salio OK -1 si fallo
+*/
 int employee_getHorasTrabajadas(Employee* this,int* horasTrabajadas)
 {
 	int retorno = -1;
@@ -150,11 +234,37 @@ int employee_getHorasTrabajadas(Employee* this,int* horasTrabajadas)
 	return retorno;
 }
 
+/**
+*\brief valida que las horas trabajadas sean numeros validos
+*\param  int horasTrabajadas el entero que se validara
+*\return retorna 1 si salio OK -1 si fallo
+*/
 static int employee_isValidHorasTrabajadas(int* horasTrabajadas)
 {
-	return 1;
+	int retorno =-1;
+    int i=0;
+
+     if(horasTrabajadas != NULL)
+     {
+        while(horasTrabajadas[i] != '\0')
+        {
+        if(horasTrabajadas[i]<'0' || horasTrabajadas[i]>'9')
+        break;
+        i++;
+     }
+        if(horasTrabajadas[i] == '\0')
+        retorno = 1;
+     }
+
+	return retorno;
 }
 
+/**
+*\brief carga un sueldo a un elemento de la estructura Employee
+*\param Employee* this puntero a la estructura Employee
+*\param  int sueldo es el sueldo que se cargara al elemento de la estructura
+*\return retorna 0 si salio OK -1 si fallo
+*/
 int employee_setSueldo(Employee* this,int sueldo)
 {
 	int retorno = -1;
@@ -166,6 +276,12 @@ int employee_setSueldo(Employee* this,int sueldo)
 	return retorno;
 }
 
+/**
+*\brief obtine un sueldo de un elemento de la estructura Employee
+*\param Employee* this puntero a la estructura Employee
+*\param  int sueldo es el sueldo al que se le cargara el sueldo del elemento de la estructura
+*\return retorna 0 si salio OK -1 si fallo
+*/
 int employee_getSueldo(Employee* this,int* sueldo)
 {
 	int retorno = -1;
@@ -177,11 +293,39 @@ int employee_getSueldo(Employee* this,int* sueldo)
 	return retorno;
 }
 
+/**
+*\brief valida que el sueldo sea un entero valido
+*\param  int sueldo es el sueldo es el elemento que se validara
+*\return retorna 1 si salio OK -1 si fallo
+*/
 static int employee_isValidSueldo(int* sueldo)
 {
-	return 1;
+	int retorno =-1;
+    int i=0;
+
+     if(sueldo != NULL)
+     {
+        while(sueldo[i] != '\0')
+        {
+        if(sueldo[i]<'0' || sueldo[i]>'9')
+        break;
+        i++;
+     }
+        if(sueldo[i] == '\0')
+        retorno = 1;
+     }
+
+	return retorno;
 }
 
+/**
+*\brief compara los nombres de 2 empleados de la estructura Employee
+*\param void* puntero a un empleado de la estructura employee
+*\param void* puntero a un segundo empleado de la estructura employee
+*\param return retorna 0 si los 2 empleados tienen el mismo nombre
+*\param return retorna <0 si el nombre del primer empleado esta antes que el del segundo empleado
+*\param return retorna >0 si el nombre del primer empleado esta despues que el del segundo empleado
+*/
 int employee_ordenarPorNombre(void* empleadoUno, void* empleadoDos)
 {
     Employee* empUno;
@@ -193,6 +337,14 @@ int employee_ordenarPorNombre(void* empleadoUno, void* empleadoDos)
 
 }
 
+/**
+*\brief compara los nombres de 2 empleados de la estructura Employee
+*\param void* puntero a un empleado de la estructura employee
+*\param void* puntero a un segundo empleado de la estructura employee
+*\param return retorna 0 si los 2 empleados trabajaron las mismas horas
+*\param return retorna 1 si el primer empleado trabajo menos horas que el segundo empleado
+*\param return retorna -1 si el primer empleado trabajo mas horas que el segundo empleado
+*/
 int employee_ordenarPorHoras(void* empleadoUno, void* empleadoDos)
 {
     int retorno = -1;
@@ -212,6 +364,14 @@ int employee_ordenarPorHoras(void* empleadoUno, void* empleadoDos)
     return retorno;
 }
 
+/**
+*\brief compara los nombres de 2 empleados de la estructura Employee
+*\param void* puntero a un empleado de la estructura employee
+*\param void* puntero a un segundo empleado de la estructura employee
+*\param return retorna 0 si los 2 empleados tienen el mismo sueldo
+*\param return retorna 1 si el primer empleado tiene un sueldo menor que el segundo empleado
+*\param return retorna -1 si el primer empleado tiene un sueldo mayor que el segundo empleado
+*/
 int employee_ordenarPorSueldo(void* empleadoUno, void* empleadoDos)
 {
     int retorno = -1;
@@ -232,6 +392,11 @@ int employee_ordenarPorSueldo(void* empleadoUno, void* empleadoDos)
 
 }
 
+/**
+*\brief menu de modificacion de los parametros cargados de un empleado
+*\param void* puntero a la lista cargada con la estructura Employee
+*\param return void
+*/
 void employee_menuModificacion(LinkedList* pArrayListEmployee)
 {
     int opcion;
@@ -274,8 +439,11 @@ void employee_menuModificacion(LinkedList* pArrayListEmployee)
 
 }
 
-
-
+/**
+*\brief menu de modificacion del nombre cargado de un empleado
+*\param void* puntero a la estructura Employee
+*\param return 0 si salio ok, -1 si fallo
+*/
 int employee_modificarNombre(Employee* this)
 {
 	int retorno = -1;
@@ -294,6 +462,11 @@ int employee_modificarNombre(Employee* this)
 	return retorno;
 }
 
+/**
+*\brief menu de modificacion del sueldo cargado de un empleado
+*\param void* puntero a la estructura Employee
+*\param return 0 si salio ok, -1 si fallo
+*/
 int employee_modificarSueldo(Employee* this)
 {
 	int retorno = -1;
@@ -315,6 +488,11 @@ int employee_modificarSueldo(Employee* this)
 	return retorno;
 }
 
+/**
+*\brief menu de modificacion de las horas cargadas de un empleado
+*\param void* puntero a la estructura Employee
+*\param return 0 si salio ok, -1 si fallo
+*/
 int employee_modificarHorasTrabajadas(Employee* this)
 {
 	int retorno = -1;
@@ -336,6 +514,11 @@ int employee_modificarHorasTrabajadas(Employee* this)
 	return retorno;
 }
 
+/**
+*\brief busca un empleado por ID y devuelve su posicion
+*\param void* puntero a la estructura Employee
+*\param return la posicion del empleado si salio ok, -1 si fallo
+*/
 int employee_buscarPorId(LinkedList* pAarrayEmployeeList)
 {
     int retorno = -1;
@@ -358,6 +541,11 @@ int employee_buscarPorId(LinkedList* pAarrayEmployeeList)
     return retorno;
 }
 
+/**
+*\brief imprime todos los elementos cargados en la lista de la estructura Employee
+*\param void* puntero a la estructura Employee
+*\param return 0 si salio ok, -1 si fallo
+*/
 int employee_imprimirTodosLosEmpleados(LinkedList* pArrayListEmployee)
 {
     int retorno = -1;
