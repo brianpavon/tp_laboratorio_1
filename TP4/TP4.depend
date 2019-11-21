@@ -1,0 +1,57 @@
+# depslib dependency file v1.0
+1574303164 source:c:\users\brian\desktop\tp_laboratorio_1\tp4\controller.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+	"Employee.h"
+	"parser.h"
+	"utn.h"
+
+1574303498 c:\users\brian\desktop\tp_laboratorio_1\tp4\linkedlist.h
+
+1574303394 c:\users\brian\desktop\tp_laboratorio_1\tp4\employee.h
+	"utn.h"
+	"LinkedList.h"
+
+1574303559 c:\users\brian\desktop\tp_laboratorio_1\tp4\utn.h
+
+1574303532 c:\users\brian\desktop\tp_laboratorio_1\tp4\parser.h
+
+1574303208 source:c:\users\brian\desktop\tp_laboratorio_1\tp4\employee.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Employee.h"
+	"utn.h"
+	"LinkedList.h"
+
+1574303588 source:c:\users\brian\desktop\tp_laboratorio_1\tp4\linkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+
+1574303133 source:c:\users\brian\desktop\tp_laboratorio_1\tp4\main.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Controller.h"
+	"Employee.h"
+	"utn.h"
+
+1574303336 c:\users\brian\desktop\tp_laboratorio_1\tp4\controller.h
+
+1574303297 source:c:\users\brian\desktop\tp_laboratorio_1\tp4\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+	"utn.h"
+
+1574303322 source:c:\users\brian\desktop\tp_laboratorio_1\tp4\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
